@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="590.0" prefWidth="490.0" stylesheets="@../css/FXMLMainUiCSS.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tictactoe.ui.FXMLMainUIController">
+   <children>
+      <Label id="TicHeading" fx:id="tictactoeHeading" layoutX="141.0" layoutY="77.0" text="Tic-Tac-Toe">
+         <font>
+            <Font name="Cartwheel" size="40.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.4666666666666666" endY="1.0" startX="0.461904761904762">
+               <stops>
+                  <Stop color="#ffe601" />
+                  <Stop color="#ffe601" offset="0.007662835249042145" />
+                  <Stop color="#ffe603" offset="0.5021132045661016" />
+                  <Stop color="#eee124" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <effect>
+            <DropShadow height="12.1" radius="5.5525" spread="0.44" width="12.11" />
+         </effect>
+      </Label>
+      <Button fx:id="playBtn" layoutX="146.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefHeight="50.0" prefWidth="200.0" stylesheets="@../css/FXMLMainUiCSS.css" text="Play" textAlignment="CENTER">
+         <font>
+            <Font name="Cartwheel" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="newPlayerBtn" layoutX="146.0" layoutY="272.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="New Player" textAlignment="CENTER">
+         <font>
+            <Font name="Cartwheel" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="leaderBoardBtn" layoutX="145.0" layoutY="348.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Leader Board" textAlignment="CENTER">
+         <font>
+            <Font name="Cartwheel" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>
