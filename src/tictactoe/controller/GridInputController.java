@@ -8,9 +8,6 @@ package tictactoe.controller;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import tictactoe.model.Board;
 import tictactoe.ui.TicTacToe;
@@ -32,7 +29,7 @@ public class GridInputController implements EventHandler<MouseEvent> {
     
     public static void main(String[] args) {
         GridInputController cnt = new GridInputController();
-        cnt.gameBoard.registerListener(cnt);
+        GridInputController.gameBoard.registerListener(cnt);
         TicTacToe.launch(args);
         
     }
@@ -60,4 +57,6 @@ public class GridInputController implements EventHandler<MouseEvent> {
 
         
     }
+    
+    
 }
