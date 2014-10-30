@@ -79,5 +79,7 @@ public class Board {
     public boolean isTaken(int x,int y){
         return grid[x][y] != State.EMPTY;
     }
+    
+    
 }
 
