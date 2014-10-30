@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import tictactoe.model.Board;
@@ -22,15 +23,15 @@ import tictactoe.model.Player;
  */
 public class FXMLPlayerSelectionController implements Initializable {
 
-    //private TicTacToe game;
     private Game game;
     private Board board;
     
     @FXML
-    private TextField player1Txt;
-    
+    private TextField player1Txt;   
     @FXML
     private TextField player2Txt;
+    @FXML
+    private Button multiPlayerBtn;
 
     /**
      * Initializes the controller class.
@@ -44,12 +45,14 @@ public class FXMLPlayerSelectionController implements Initializable {
     public void onMouseClicked(MouseEvent event) {        
         game = Game.getInstance();
         board = Board.getInstance();
-        System.out.println(player1Txt);
+
         board.setPlayer1(new Player(player1Txt.getText()));
         board.setPlayer2(new Player(player2Txt.getText()));
+        
         try {
             game.start(MainUI.getStage());
         } catch (IOException ex) {
+            System.out.println(ex);
         }
     }
 }

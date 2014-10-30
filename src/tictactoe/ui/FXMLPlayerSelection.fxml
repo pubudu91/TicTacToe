@@ -22,9 +22,9 @@
       </Label>
       <Label layoutX="38.0" layoutY="41.0" text="Player 1:" />
       <Label layoutX="38.0" layoutY="95.0" text="Player 2: " />
-      <TextField id="player1Txt" layoutX="97.0" layoutY="37.0" prefHeight="25.0" prefWidth="168.0" />
-      <TextField id="player2Txt" layoutX="97.0" layoutY="91.0" prefHeight="25.0" prefWidth="168.0" />
-      <Button id="playBtn" layoutX="79.0" layoutY="137.0" onMouseClicked="#onMouseClicked" mnemonicParsing="false" prefHeight="36.0" prefWidth="156.0" stylesheets="@../css/FXMLSelectionCSS.css" text="Play">
+      <TextField id="player1Txt" fx:id="player1Txt" layoutX="97.0" layoutY="37.0" prefHeight="25.0" prefWidth="168.0" />
+      <TextField id="player2Txt" fx:id="player2Txt" layoutX="97.0" layoutY="91.0" prefHeight="25.0" prefWidth="168.0" />
+      <Button id="playBtn" fx:id="multiPlayerBtn" layoutX="79.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefHeight="36.0" prefWidth="156.0" stylesheets="@../css/FXMLSelectionCSS.css" text="Play">
          <font>
             <Font name="Cartwheel" size="18.0" />
          </font></Button>

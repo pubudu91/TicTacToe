@@ -9,8 +9,10 @@ package tictactoe.ui;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import tictactoe.util.Const;
 
@@ -32,7 +34,12 @@ public class Game extends Application {
         Scene scene = new Scene(root,Const.WIDTH+10,Const.HEIGHT+10);
         
         stage.setScene(scene);
+        this.stage = stage;
         stage.show();
+        
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2); 
+        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);  
     }
 
     private Game() { }
