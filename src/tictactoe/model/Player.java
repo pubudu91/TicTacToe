@@ -9,23 +9,19 @@ package tictactoe.model;
 public class Player  implements java.io.Serializable {
     
     private String userName;
-    private String firstName;
-    private String lastName;
-    private String password;
     private int games;
     private int wins;
     private int losses;
+    private int draws;
 
     public Player() {
     }
 
-    public Player(String userName, String firstName, String lastName, String password, int games, int wins, int losses) {
+    public Player(String userName, int games, int wins, int draws, int losses) {
        this.userName = userName;
-       this.firstName = firstName;
-       this.lastName = lastName;
-       this.password = password;
        this.games = games;
        this.wins = wins;
+       this.draws = draws;
        this.losses = losses;
     }
    
@@ -36,31 +32,7 @@ public class Player  implements java.io.Serializable {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    
-    public String getFirstName() {
-        return this.firstName;
-    }
-    
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    
-    public String getLastName() {
-        return this.lastName;
-    }
-    
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-    
-    public String getPassword() {
-        return this.password;
-    }
-    
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
+        
     public int getGames() {
         return this.games;
     }
@@ -88,8 +60,6 @@ public class Player  implements java.io.Serializable {
     public int getDraws(){
         return getGames() - (getWins()+getLosses());
     }
-
-
 }
 
 
