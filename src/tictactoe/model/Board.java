@@ -22,8 +22,10 @@ public class Board {
     private static Board game; // singleton representing the whole game board
     private Player player1;  // player 1 is 'X'
     private Player player2;  // player 2 is 'O'
+    private Player winner;
     private State grid[][]; // the actual grid on which the game is played
     private boolean gameOver;
+    private int draw;
 
     private Board() {
         grid = new State[GRID_SIZE][GRID_SIZE]; // set up the grid
@@ -50,8 +52,8 @@ public class Board {
     }
 
     public boolean makeAMove(State state, int x, int y) {
-        int draw = 0;
         GameDBAccess gameDBAccess = new GameDBAccess();
+        
         if (!isTaken(x, y) && !gameOver) {
             grid[x][y] = state;
             draw++;
@@ -61,38 +63,46 @@ public class Board {
 
         if (hasWon(state, x, y)) {
             try {                
+                /* If the players are not already in the database, add them to the database first */
                 if (!gameDBAccess.isExisting(player1.getUserName())) {
                     gameDBAccess.addNewPlayer(player1.getUserName());
                 }
                 if (!gameDBAccess.isExisting(player2.getUserName())) {
                     gameDBAccess.addNewPlayer(player2.getUserName());
                 }
+                
+                /* Update the records of the players */
                 if (state == State.X) {
                     gameDBAccess.incrementWins(player1.getUserName());
                     gameDBAccess.incrementLosses(player2.getUserName());
-
+                    winner = player1;
                 } else if (state == State.O) {
                     gameDBAccess.incrementWins(player2.getUserName());
                     gameDBAccess.incrementLosses(player1.getUserName());
+                    winner = player2;
                 }
+                
                 gameOver = true;
+
                 return true;
             } catch (ClassNotFoundException | SQLException ex) {
-
+                System.out.println(ex);
             }
         }
-        
-        if(isDraw(draw, gameOver)){
+
+        if(isDraw()){
             try {
-                if (!gameDBAccess.isExisting(player1.getUserName())) {
+                if (!gameDBAccess.isExisting(player1.getUserName())) 
                     gameDBAccess.addNewPlayer(player1.getUserName());
-                }
-                if (!gameDBAccess.isExisting(player2.getUserName())) {
+                
+                if (!gameDBAccess.isExisting(player2.getUserName())) 
                     gameDBAccess.addNewPlayer(player2.getUserName());
-                }
+                
                 gameDBAccess.incrementDraws(player1.getUserName());
                 gameDBAccess.incrementDraws(player2.getUserName());
+                
                 gameOver = true;
+
                 return true;
             } catch (ClassNotFoundException | SQLException ex) {                
             }
@@ -118,10 +128,10 @@ public class Board {
                 && grid[2][0] == target);
     }
 
-    public boolean isDraw(int draw, boolean gameOver){        
-        if(draw == 9 && !gameOver){
+    public boolean isDraw(){        
+        if(draw >= 9 && !gameOver)
             return true;
-        }
+        
         return false;
     }
     public boolean isTaken(int x, int y) {
@@ -134,5 +144,13 @@ public class Board {
 
     public void setPlayer2(Player player2) {
         this.player2 = player2;
+    }
+    
+    public Player getWinner() {
+        return winner;
+    }
+    
+    public boolean isGameOver() {
+        return gameOver;
     }
 }

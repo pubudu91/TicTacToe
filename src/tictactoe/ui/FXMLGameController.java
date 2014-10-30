@@ -17,9 +17,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javax.swing.JOptionPane;
 import org.controlsfx.dialog.Dialogs;
 import tictactoe.model.Board;
+import tictactoe.model.Player;
 import tictactoe.util.State;
 
 /**
@@ -64,7 +64,7 @@ public class FXMLGameController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        board = Board.getInstance(true); // GET A NEW BOARD!!
+        board = Board.getInstance(); // GET A NEW BOARD!!
         game = Game.getInstance();
         moveNo = 0;
     }    
@@ -114,14 +114,28 @@ public class FXMLGameController implements Initializable {
         String url = getURL();
         boolean moveMade = makeNextMove(row, col);
         
-        Dialogs.create()
-                .owner(game.getStage())
-                .title("Information Dialog")
-                .masthead("Look, an Information Dialog")
-                .message("I have a great message for you!")
-                .showInformation();
-        
-        if(moveMade)
+        if(moveMade){
             view.setImage(getImage(url));
+            
+            Player winner;
+            if(board.isGameOver()){
+                if((winner=board.getWinner()) != null){
+                    Dialogs.create()
+                            .owner(game.getStage())
+                            .title("We have a winner!")
+                            .masthead("Congratulations!!!")
+                            .message(winner.getUserName()+" WINS!!!")
+                            .showInformation();
+                }
+                else{
+                    Dialogs.create()
+                            .owner(game.getStage())
+                            .title("Good game!")
+                            .masthead("DRAW!!!")
+                            .message("Better luck next time...")
+                            .showInformation();
+                }
+            }       
+        }
     }
 }
