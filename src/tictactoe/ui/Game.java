@@ -20,6 +20,7 @@ import tictactoe.util.Const;
  */
 public class Game extends Application {
     private static Game game;
+    private Stage stage;
     
     @Override
     public void start(Stage stage) throws IOException {
@@ -41,5 +42,9 @@ public class Game extends Application {
             game = new Game();
         
         return game;
+    }
+    
+    public Stage getStage() {
+        return stage;
     }
 }

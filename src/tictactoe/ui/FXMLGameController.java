@@ -17,6 +17,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javax.swing.JOptionPane;
+import org.controlsfx.dialog.Dialogs;
 import tictactoe.model.Board;
 import tictactoe.util.State;
 
@@ -32,6 +34,7 @@ public class FXMLGameController implements Initializable {
     
     /* Views */
     private MainUI mainScreen;
+    private Game game;
     @FXML
     private GridPane grid;
     @FXML
@@ -62,6 +65,7 @@ public class FXMLGameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         board = Board.getInstance(true); // GET A NEW BOARD!!
+        game = Game.getInstance();
         moveNo = 0;
     }    
     
@@ -104,8 +108,18 @@ public class FXMLGameController implements Initializable {
         int row = GridPane.getRowIndex(view);
         int col = GridPane.getColumnIndex(view);
         
+        view.setScaleX(.75);
+        view.setScaleY(.75);
+        
         String url = getURL();
         boolean moveMade = makeNextMove(row, col);
+        
+        Dialogs.create()
+                .owner(game.getStage())
+                .title("Information Dialog")
+                .masthead("Look, an Information Dialog")
+                .message("I have a great message for you!")
+                .showInformation();
         
         if(moveMade)
             view.setImage(getImage(url));
