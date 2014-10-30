@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="294.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tictactoe.ui.FXMLPlayerSelectionController">
+   <children>
+      <Label layoutX="-1.0" layoutY="-4.0" prefHeight="212.0" prefWidth="315.0">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="@../res/bg1.png" />
+               </source>
+            </ImageInput>
+         </effect>
+      </Label>
+      <Label layoutX="38.0" layoutY="41.0" text="Player 1:" />
+      <Label layoutX="38.0" layoutY="95.0" text="Player 2: " />
+      <TextField id="player1Txt" layoutX="97.0" layoutY="37.0" prefHeight="25.0" prefWidth="168.0" />
+      <TextField id="player2Txt" layoutX="97.0" layoutY="91.0" prefHeight="25.0" prefWidth="168.0" />
+      <Button id="playBtn" layoutX="79.0" layoutY="137.0" onMouseClicked="#onMouseClicked" mnemonicParsing="false" prefHeight="36.0" prefWidth="156.0" stylesheets="@../css/FXMLSelectionCSS.css" text="Play">
+         <font>
+            <Font name="Cartwheel" size="18.0" />
+         </font></Button>
+   </children>
+</Pane>

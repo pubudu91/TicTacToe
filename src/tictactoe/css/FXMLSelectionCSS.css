@@ -1,0 +1,24 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 15, 2014, 9:38:15 PM
+    Author     : Pubudu
+*/
+
+.button {
+    -fx-background-image: url('../res/plyBtn.png');
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.button:hover {
+    -fx-background-image: url('../res/plyBtn_hover.png');
+}
+
+.button:pressed {
+    -fx-background-image: url('../res/playBtn_clicked.png');
+}

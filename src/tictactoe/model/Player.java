@@ -14,7 +14,8 @@ public class Player  implements java.io.Serializable {
     private int losses;
     private int draws;
 
-    public Player() {
+    public Player(String username) {
+        this.userName = username;
     }
 
     public Player(String userName, int games, int wins, int draws, int losses) {
@@ -57,8 +58,12 @@ public class Player  implements java.io.Serializable {
         this.losses = losses;
     }
 
+    public void setDraws(int draws) {
+        this.draws = draws;
+    }
+
     public int getDraws(){
-        return getGames() - (getWins()+getLosses());
+        return draws;
     }
 }
 
