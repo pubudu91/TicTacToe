@@ -43,6 +43,18 @@ public class FXMLGameController implements Initializable {
     private ImageView grid01;
     @FXML
     private ImageView grid02;
+    @FXML
+    private ImageView grid10;
+    @FXML
+    private ImageView grid11;
+    @FXML
+    private ImageView grid12;
+    @FXML
+    private ImageView grid20;
+    @FXML
+    private ImageView grid21;
+    @FXML
+    private ImageView grid22;
 
     
     /**
@@ -50,7 +62,7 @@ public class FXMLGameController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        board = Board.getInstance();
+        board = Board.getInstance(true); // GET A NEW BOARD!!
         moveNo = 0;
     }    
     
@@ -63,36 +75,7 @@ public class FXMLGameController implements Initializable {
             Logger.getLogger(FXMLGameController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    @FXML
-    private void onGrid00Clicked(MouseEvent event) {
-        String url = getURL();
-        boolean moveMade = makeNextMove(0, 0);
-        
-        if(moveMade)
-            grid00.setImage(getImage(url));
-        System.out.println(moveNo);
-    }
 
-    @FXML
-    private void onGrid01Clicked(MouseEvent event) {
-        String url = getURL();
-        boolean moveMade = makeNextMove(0, 1);
-        
-        if(moveMade)
-            grid01.setImage(getImage(url));
-        System.out.println(moveNo);
-    }
-    
-    @FXML
-    private void onGrid02Clicked(MouseEvent event) {
-        String url = getURL();
-        boolean moveMade = makeNextMove(0, 2);
-        
-        if(moveMade)
-            grid02.setImage(getImage(url));
-        System.out.println(moveNo);
-    }
-    
     private boolean makeNextMove(int x, int y) {
         if(isNextMoveCross())
             return board.makeAMove(State.X, x, y);
@@ -114,5 +97,19 @@ public class FXMLGameController implements Initializable {
             return "/tictactoe/res/cross.png";
         else
             return "/tictactoe/res/circle.png";
+    }
+
+    @FXML
+    private void onGridClicked(MouseEvent event) {
+        ImageView view = (ImageView) event.getSource();
+        int row = GridPane.getRowIndex(view);
+        int col = GridPane.getColumnIndex(view);
+        
+        String url = getURL();
+        boolean moveMade = makeNextMove(row, col);
+        
+        if(moveMade)
+            view.setImage(getImage(url));
+        //System.out.println(moveNo);
     }
 }

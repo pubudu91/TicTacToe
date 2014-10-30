@@ -24,9 +24,15 @@
           <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fx:id="grid00" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGrid00Clicked" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="grid01" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGrid01Clicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-            <ImageView fx:id="grid02" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGrid02Clicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+            <ImageView fx:id="grid00" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGridClicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <ImageView fx:id="grid01" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGridClicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <ImageView fx:id="grid02" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGridClicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <ImageView fx:id="grid10" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGridClicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <ImageView fx:id="grid11" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGridClicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ImageView fx:id="grid12" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGridClicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ImageView fx:id="grid20" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGridClicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <ImageView fx:id="grid21" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGridClicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ImageView fx:id="grid22" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGridClicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <Button id="back" fx:id="backBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefHeight="50.0" prefWidth="50.0">

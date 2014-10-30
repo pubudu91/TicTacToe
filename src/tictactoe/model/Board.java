@@ -18,9 +18,11 @@ public class Board {
     private Player player1;  // player 1 is 'X'
     private Player player2;  // player 2 is 'O'
     private State grid[][]; // the actual grid on which the game is played
+    private boolean gameOver;
     
     private Board(){
         grid = new State[GRID_SIZE][GRID_SIZE]; // set up the grid
+        gameOver = false;
         
         /* initialize the grid to EMPTY at the beginning of a game */
         for (int i = 0; i < GRID_SIZE; i++) {
@@ -37,12 +39,22 @@ public class Board {
         return game;
     }
     
-    public boolean makeAMove(State state, int x, int y){
-        if(!isTaken(x,y))
+    public static Board getInstance(boolean isNew){
+        game = new Board();  
+        return game;
+    }
+    
+    public boolean makeAMove(State state, int x, int y){   
+        if(!isTaken(x,y) && !gameOver)
             grid[x][y] = state;
         else
             return false;
         
+        if(hasWon(state,x,y)){
+            System.out.println("Player "+state+" won!!");
+            gameOver = true;
+            return true;
+        }
         return true;
     }
     
