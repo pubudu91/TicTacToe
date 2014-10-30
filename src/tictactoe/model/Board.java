@@ -64,7 +64,7 @@ public class Board {
                    && grid[2][0] == target);
     }
     
-    private boolean isTaken(int x,int y){
+    public boolean isTaken(int x,int y){
         return grid[x][y] != State.EMPTY;
     }
 }

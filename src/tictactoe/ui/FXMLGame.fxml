@@ -24,16 +24,9 @@
           <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fitHeight="85.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../res/cross.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="94.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-               <image>
-                  <Image url="@../res/circle.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="grid00" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGrid00Clicked" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="grid01" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGrid01Clicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+            <ImageView fx:id="grid02" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#onGrid02Clicked" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
          </children>
       </GridPane>
       <Button id="back" fx:id="backBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefHeight="50.0" prefWidth="50.0">
