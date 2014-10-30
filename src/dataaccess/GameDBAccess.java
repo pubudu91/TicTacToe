@@ -18,11 +18,12 @@ import tictactoe.util.DBConnection;
  * @author Mampitiya
  */
 public class GameDBAccess {
-    private Connection con;
-    private ResultSet rst;
-    private Statement statement;
-    int restult;
+    private Connection con; //create a connection object to get the connection to the database
+    private ResultSet rst;  //holds the data retrieved from the database
+    private Statement statement;    //to execute sql commands
+    int restult;    //whether successfully executed
     
+    /*This method will search and return the user having the same username as given*/
     public Player searchPlayer(String username) throws ClassNotFoundException, SQLException{
         con = DBConnection.getConnection();
         statement = con.createStatement();
@@ -37,9 +38,10 @@ public class GameDBAccess {
             Player player = new Player(username, totGames, totWins, totDraws, totLosses);
             return player;
         }
-        return null;
+        return null;    //if no such user return null
     }
     
+    /*This method will return all the existing users in the database*/
     public ResultSet searchAll() throws ClassNotFoundException, SQLException{
         con = DBConnection.getConnection();
         statement = con.createStatement();
@@ -48,6 +50,7 @@ public class GameDBAccess {
         return rst;
     }
     
+    /*This method will check whether the given user is in the database*/
     public boolean isExisting(String username) throws ClassNotFoundException, SQLException{
         con = DBConnection.getConnection();
         statement = con.createStatement();
@@ -56,6 +59,7 @@ public class GameDBAccess {
         return rst.first();
     }
     
+    /*this method will increment the no of winnings of the given user*/
     public int incrementWins(String username) throws ClassNotFoundException, SQLException{
         con = DBConnection.getConnection();
         statement = con.createStatement();
@@ -64,6 +68,7 @@ public class GameDBAccess {
         return restult;
     }
     
+    /*this method will increment the no of lossess of the given user*/
     public int incrementLosses(String username) throws ClassNotFoundException, SQLException{
         con = DBConnection.getConnection();
         statement = con.createStatement();
@@ -72,6 +77,7 @@ public class GameDBAccess {
         return restult;
     }
     
+    /*this method will increment the no of draws of the given user*/
     public int incrementDraws(String username) throws ClassNotFoundException, SQLException{
         con = DBConnection.getConnection();
         statement = con.createStatement();
@@ -80,6 +86,7 @@ public class GameDBAccess {
         return restult;
     }
     
+    /*this method will add the given user to the database*/
     public int addNewPlayer(String username) throws ClassNotFoundException, SQLException{
         con = DBConnection.getConnection();
         statement = con.createStatement();
