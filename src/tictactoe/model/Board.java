@@ -42,13 +42,18 @@ public class Board {
     public static Board getInstance() {
         if (game == null) {
             game = new Board();
+            System.out.println("new board created!");
         }
         return game;
     }
 
-    public static Board getInstance(boolean isNew) {
+//    public static Board getInstance(boolean isNew) {
+//        game = new Board();
+//        return game;
+//    }
+    
+    public static void reset() {
         game = new Board();
-        return game;
     }
 
     public boolean makeAMove(State state, int x, int y) {
@@ -57,6 +62,7 @@ public class Board {
         if (!isTaken(x, y) && !gameOver) {
             grid[x][y] = state;
             draw++;
+            //System.out.println("move: "+x+" "+y);
         } else {
             return false;
         }
@@ -64,6 +70,7 @@ public class Board {
         if (hasWon(state, x, y)) {
             try {                
                 /* If the players are not already in the database, add them to the database first */
+                //System.out.println(player1.getUserName());
                 if (!gameDBAccess.isExisting(player1.getUserName())) {
                     gameDBAccess.addNewPlayer(player1.getUserName());
                 }
@@ -152,5 +159,13 @@ public class Board {
     
     public boolean isGameOver() {
         return gameOver;
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
     }
 }

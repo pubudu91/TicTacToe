@@ -26,6 +26,7 @@ public class Game extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
+        this.stage = stage;
         stage.setResizable(false); 
         stage.setTitle(".:: Tic-Tac-Toe ::.");
         
@@ -34,7 +35,6 @@ public class Game extends Application {
         Scene scene = new Scene(root,Const.WIDTH+10,Const.HEIGHT+10);
         
         stage.setScene(scene);
-        this.stage = stage;
         stage.show();
         
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
@@ -45,7 +45,7 @@ public class Game extends Application {
     private Game() { }
     
     public static Game getInstance(){
-        if(game == null)
+        //if(game == null)
             game = new Game();
         
         return game;

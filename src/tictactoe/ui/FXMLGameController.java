@@ -6,6 +6,7 @@
 
 package tictactoe.ui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -17,6 +18,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import org.controlsfx.control.action.Action;
+import org.controlsfx.dialog.Dialog;
 import org.controlsfx.dialog.Dialogs;
 import tictactoe.model.Board;
 import tictactoe.model.Player;
@@ -101,6 +104,27 @@ public class FXMLGameController implements Initializable {
         else
             return "/tictactoe/res/circle.png";
     }
+    
+    private void resetGame() {
+        Player p1 = board.getPlayer1();
+        Player p2 = board.getPlayer2();
+        
+        Board.reset();
+        board = Board.getInstance();
+        board.setPlayer1(p1);
+        board.setPlayer2(p2);
+        
+        //System.out.println(board.getPlayer1().getUserName());
+        
+        moveNo = 0;
+
+        try {
+            System.out.println("STAGE "+game.getStage()==null);
+            game.start(game.getStage()); 
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLGameController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     @FXML
     private void onGridClicked(MouseEvent event) {
@@ -113,11 +137,14 @@ public class FXMLGameController implements Initializable {
         
         String url = getURL();
         boolean moveMade = makeNextMove(row, col);
+        //System.out.println(view+" "+moveMade+" "+board.getPlayer1()==null);
+        System.out.println(moveMade+" "+moveNo);
         
         if(moveMade){
             view.setImage(getImage(url));
             
             Player winner;
+
             if(board.isGameOver()){
                 if((winner=board.getWinner()) != null){
                     Dialogs.create()
@@ -133,8 +160,12 @@ public class FXMLGameController implements Initializable {
                             .title("Good game!")
                             .masthead("DRAW!!!")
                             .message("Better luck next time...")
+                            .styleClass(Dialog.STYLE_CLASS_UNDECORATED)
                             .showInformation();
                 }
+                //resetGame();
+                //System.out.println(board.getPlayer1().getUserName());
+                Board.reset();
             }       
         }
     }
