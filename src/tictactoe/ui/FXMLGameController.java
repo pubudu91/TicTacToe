@@ -158,14 +158,13 @@ public class FXMLGameController implements Initializable {
                             .showInformation();
                     
                     int currentScore;
+                    
                     if(winner == board.getPlayer1()){
-                        currentScore = Integer.parseInt(p1ScoreLabel.getText().substring(2));
-                        currentScore++;
+                        currentScore = Integer.parseInt(p1ScoreLabel.getText().substring(2)) + 1;
                         p1ScoreLabel.setText("- "+currentScore);
                     }
                     else{
-                        currentScore = Integer.parseInt(p2ScoreLabel.getText().substring(2));
-                        currentScore++;
+                        currentScore = Integer.parseInt(p2ScoreLabel.getText().substring(2)) + 1;
                         p2ScoreLabel.setText("- "+currentScore);
                     }
                         

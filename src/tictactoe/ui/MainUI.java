@@ -6,15 +6,11 @@
 
 package tictactoe.ui;
 
-import java.awt.Dimension;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import tictactoe.util.Const;
 import tictactoe.util.ScreenUtils;
 
 /**
@@ -46,9 +42,6 @@ public class MainUI extends Application {
         height = stage.getHeight(); 
         
         ScreenUtils.centerStage(stage);
-//        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-//        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2); 
-//        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);  
     }
 
     /**

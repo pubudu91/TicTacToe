@@ -21,8 +21,8 @@ import tictactoe.util.ScreenUtils;
  *
  * @author Pubudu
  */
-public class Game extends Application {
-    private static Game game;
+public class GameComputer extends Application {
+    private static GameComputer game;
     private Stage stage;
     
     @Override
@@ -31,24 +31,21 @@ public class Game extends Application {
         stage.setResizable(false); 
         stage.setTitle(".:: Tic-Tac-Toe ::.");
         
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLGame.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLGameComputer.fxml"));
         
         Scene scene = new Scene(root,Const.WIDTH+10,Const.HEIGHT+10);
         
         stage.setScene(scene);
         stage.show();
         
-        ScreenUtils.centerStage(stage);
-//        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-//        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2); 
-//        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);  
+        ScreenUtils.centerStage(stage); 
     }
 
-    private Game() { }
+    private GameComputer() { }
     
-    public static Game getInstance(){
+    public static GameComputer getInstance(){
         if(game == null)
-            game = new Game();
+            game = new GameComputer();
         
         return game;
     }

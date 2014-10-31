@@ -7,9 +7,6 @@ package tictactoe.model;
 
 import dataaccess.GameDBAccess;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import tictactoe.util.State;
 
 /**
@@ -22,6 +19,7 @@ public class Board {
     private static Board game; // singleton representing the whole game board
     private Player player1;  // player 1 is 'X'
     private Player player2;  // player 2 is 'O'
+    private AIPlayerMinimax computer; // AI
     private Player winner;
     private State grid[][]; // the actual grid on which the game is played
     private boolean gameOver;
@@ -47,10 +45,9 @@ public class Board {
         return game;
     }
 
-//    public static Board getInstance(boolean isNew) {
-//        game = new Board();
-//        return game;
-//    }
+    public State[][] getGrid() {
+        return grid;
+    }
     
     public static void reset() {
         game = new Board();
