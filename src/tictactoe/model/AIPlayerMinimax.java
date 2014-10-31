@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+CODE ADAPTED FROM THE SOURCE GIVEN HERE:
+http://www.ntu.edu.sg/home/ehchua/programming/java/JavaGame_TicTacToe_AI.html
  */
 
 package tictactoe.model;
