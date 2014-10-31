@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.effect.*?>
@@ -39,5 +40,35 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <Label layoutX="253.0" layoutY="34.0" prefHeight="24.0" prefWidth="40.0" text="X :" textAlignment="RIGHT" textFill="RED">
+         <font>
+            <Font name="Cartwheel" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="253.0" layoutY="71.0" prefHeight="24.0" prefWidth="40.0" text="O :" textAlignment="RIGHT" textFill="#0083ff">
+         <font>
+            <Font name="Cartwheel" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="player1Label" layoutX="293.0" layoutY="34.0" prefHeight="24.0" prefWidth="131.0" text="Player1" textFill="RED">
+         <font>
+            <Font name="Cartwheel" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2Label" layoutX="293.0" layoutY="71.0" prefHeight="24.0" prefWidth="131.0" text="Player2" textFill="#0083ff">
+         <font>
+            <Font name="Cartwheel" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="p2ScoreLabel" layoutX="424.0" layoutY="71.0" prefHeight="24.0" prefWidth="40.0" text="- 0" textAlignment="RIGHT" textFill="#0083ff">
+         <font>
+            <Font name="Cartwheel" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="p1ScoreLabel" layoutX="424.0" layoutY="34.0" prefHeight="24.0" prefWidth="40.0" text="- 0" textAlignment="RIGHT" textFill="RED">
+         <font>
+            <Font name="Cartwheel" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

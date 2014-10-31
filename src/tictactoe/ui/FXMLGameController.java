@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -60,6 +61,14 @@ public class FXMLGameController implements Initializable {
     private ImageView grid21;
     @FXML
     private ImageView grid22;
+    @FXML
+    private Label player1Label;
+    @FXML
+    private Label player2Label;
+    @FXML
+    private Label p2ScoreLabel;
+    @FXML
+    private Label p1ScoreLabel;
 
     
     /**
@@ -70,6 +79,8 @@ public class FXMLGameController implements Initializable {
         board = Board.getInstance(); // GET A NEW BOARD!!
         game = Game.getInstance();
         moveNo = 0;
+        player1Label.setText(board.getPlayer1().getUserName());
+        player2Label.setText(board.getPlayer2().getUserName());
     }    
     
     @FXML
@@ -106,24 +117,15 @@ public class FXMLGameController implements Initializable {
     }
     
     private void resetGame() {
-        Player p1 = board.getPlayer1();
-        Player p2 = board.getPlayer2();
-        
-        Board.reset();
         board = Board.getInstance();
-        board.setPlayer1(p1);
-        board.setPlayer2(p2);
-        
-        //System.out.println(board.getPlayer1().getUserName());
-        
-        moveNo = 0;
+        board.setPlayer1(new Player(player1Label.getText()));
+        board.setPlayer2(new Player(player2Label.getText()));
 
-        try {
-            System.out.println("STAGE "+game.getStage()==null);
-            game.start(game.getStage()); 
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLGameController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //System.out.println(board.getPlayer1().getUserName());
+
+        grid00.setImage(null); grid01.setImage(null); grid02.setImage(null); 
+        grid10.setImage(null); grid11.setImage(null); grid12.setImage(null); 
+        grid20.setImage(null); grid21.setImage(null); grid22.setImage(null); 
     }
 
     @FXML
@@ -166,6 +168,7 @@ public class FXMLGameController implements Initializable {
                 //resetGame();
                 //System.out.println(board.getPlayer1().getUserName());
                 Board.reset();
+                resetGame();
             }       
         }
     }

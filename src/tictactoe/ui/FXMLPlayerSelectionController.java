@@ -42,8 +42,9 @@ public class FXMLPlayerSelectionController implements Initializable {
     }
 
     @FXML
-    public void onMouseClicked(MouseEvent event) {        
+    private void onPlayBtnClicked(MouseEvent event) {
         game = Game.getInstance();
+        System.out.println("game created in player selection");
         board = Board.getInstance();
 
         board.setPlayer1(new Player(player1Txt.getText()));
