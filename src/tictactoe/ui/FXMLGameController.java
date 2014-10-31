@@ -155,6 +155,19 @@ public class FXMLGameController implements Initializable {
                             .masthead("Congratulations!!!")
                             .message(winner.getUserName()+" WINS!!!")
                             .showInformation();
+                    
+                    int currentScore;
+                    if(winner == board.getPlayer1()){
+                        currentScore = Integer.parseInt(p1ScoreLabel.getText().substring(2));
+                        currentScore++;
+                        p1ScoreLabel.setText("- "+currentScore);
+                    }
+                    else{
+                        currentScore = Integer.parseInt(p2ScoreLabel.getText().substring(2));
+                        currentScore++;
+                        p2ScoreLabel.setText("- "+currentScore);
+                    }
+                        
                 }
                 else{
                     Dialogs.create()
