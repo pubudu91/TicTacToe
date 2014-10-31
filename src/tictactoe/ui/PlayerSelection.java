@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import tictactoe.util.Const;
+import tictactoe.util.ScreenUtils;
 
 /**
  *
@@ -33,11 +34,11 @@ public class PlayerSelection extends Application{
         
         Scene scene = new Scene(root);        
         stage.setScene(scene);
+//        stage.setWidth(315);
+//        stage.setHeight(212);
         stage.show();
         
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2); 
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);  
+        ScreenUtils.centerStage(stage);
     }
 
     private PlayerSelection() { }

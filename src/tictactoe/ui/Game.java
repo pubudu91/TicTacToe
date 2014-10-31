@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import tictactoe.util.Const;
+import tictactoe.util.ScreenUtils;
 
 /**
  *
@@ -37,9 +38,10 @@ public class Game extends Application {
         stage.setScene(scene);
         stage.show();
         
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2); 
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);  
+        ScreenUtils.centerStage(stage);
+//        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+//        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2); 
+//        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);  
     }
 
     private Game() { }

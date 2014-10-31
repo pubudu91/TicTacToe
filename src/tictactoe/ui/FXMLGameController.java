@@ -117,6 +117,7 @@ public class FXMLGameController implements Initializable {
     }
     
     private void resetGame() {
+        Board.reset();
         board = Board.getInstance();
         board.setPlayer1(new Player(player1Label.getText()));
         board.setPlayer2(new Player(player2Label.getText()));
@@ -178,9 +179,6 @@ public class FXMLGameController implements Initializable {
                             .styleClass(Dialog.STYLE_CLASS_UNDECORATED)
                             .showInformation();
                 }
-                //resetGame();
-                //System.out.println(board.getPlayer1().getUserName());
-                Board.reset();
                 resetGame();
             }       
         }
