@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tictactoe.ui;
+package tictactoe.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,6 +15,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import tictactoe.model.Board;
 import tictactoe.model.Player;
+import tictactoe.ui.Game;
+import tictactoe.ui.MainUI;
 
 /**
  * FXML Controller class

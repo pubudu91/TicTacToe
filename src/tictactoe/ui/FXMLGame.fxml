@@ -11,7 +11,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="590.0" prefWidth="490.0" styleClass="mainFxmlClass" stylesheets="@../css/FXMLMainUiCSS.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tictactoe.ui.FXMLGameController">
+<AnchorPane id="AnchorPane" prefHeight="590.0" prefWidth="490.0" styleClass="mainFxmlClass" stylesheets="@../css/FXMLMainUiCSS.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tictactoe.controller.FXMLGameController">
    <children>
       <GridPane fx:id="grid" gridLinesVisible="true" layoutX="95.0" layoutY="150.0">
         <columnConstraints>

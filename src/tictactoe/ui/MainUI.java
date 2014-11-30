@@ -29,7 +29,7 @@ public class MainUI extends Application {
         stage.setResizable(false); 
         stage.setTitle(".:: Tic-Tac-Toe ::.");
         
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLMainUI.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLMainUI.fxml")); 
         
         Scene scene = new Scene(root);
         

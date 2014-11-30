@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package tictactoe.ui;
+package tictactoe.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import tictactoe.ui.MainUI;
+import tictactoe.ui.PlayerSelection;
 
 /**
  *

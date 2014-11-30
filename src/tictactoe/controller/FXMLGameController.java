@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package tictactoe.ui;
+package tictactoe.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,6 +24,8 @@ import org.controlsfx.dialog.Dialog;
 import org.controlsfx.dialog.Dialogs;
 import tictactoe.model.Board;
 import tictactoe.model.Player;
+import tictactoe.ui.Game;
+import tictactoe.ui.MainUI;
 import tictactoe.util.State;
 
 /**
