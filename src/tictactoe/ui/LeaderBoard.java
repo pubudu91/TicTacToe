@@ -14,13 +14,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import tictactoe.util.Const;
 import tictactoe.util.ScreenUtils;
-
 /**
  *
  * @author Pubudu
  */
-public class GameComputer extends Application {
-    private static GameComputer game;
+public class LeaderBoard extends Application {
+    private static LeaderBoard leaderBoard;
     private Stage stage;
     
     @Override
@@ -29,7 +28,7 @@ public class GameComputer extends Application {
         stage.setResizable(false); 
         stage.setTitle(".:: Tic-Tac-Toe ::.");
         
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLGameComputer.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLLeaderBoard.fxml"));
         
         Scene scene = new Scene(root,Const.WIDTH+10,Const.HEIGHT+10);
         
@@ -38,14 +37,14 @@ public class GameComputer extends Application {
         
         ScreenUtils.centerStage(stage); 
     }
-
-    private GameComputer() { }
     
-    public static GameComputer getInstance(){
-        if(game == null)
-            game = new GameComputer();
+    private LeaderBoard() { }
+    
+    public static LeaderBoard getInstance(){
+        if(leaderBoard == null)
+            leaderBoard = new LeaderBoard();
         
-        return game;
+        return leaderBoard;
     }
     
     public Stage getStage() {

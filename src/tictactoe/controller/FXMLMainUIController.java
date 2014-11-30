@@ -14,8 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import tictactoe.ui.Game;
 import tictactoe.ui.GameComputer;
+import tictactoe.ui.LeaderBoard;
 import tictactoe.ui.MainUI;
 import tictactoe.ui.PlayerSelection;
 
@@ -65,9 +65,13 @@ public class FXMLMainUIController implements Initializable {
     
     @FXML
     public void onLeaderBoardBtnClicked(MouseEvent event){
-//        try {
-//            //GameComputer.getInstance().start(MainUI.getStage());
-//        } catch (IOException ex) {            
-//        }
+        try {
+            System.out.println("Button clicked!");
+            LeaderBoard.getInstance().start(MainUI.getStage());
+        } catch (IOException ex) {            
+            System.out.println("ERROR in Single Player button click");
+            System.out.println(ex);
+            ex.printStackTrace();
+        }
     }
 }

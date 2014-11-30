@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import tictactoe.model.Player;
 import tictactoe.util.DBConnection;
 
@@ -93,5 +94,22 @@ public class GameDBAccess {
         String sql = "insert into user (username) values ('"+username+"')"; 
         restult = statement.executeUpdate(sql);
         return restult;
+    }
+    
+    public ArrayList<Player> getTopScorers() throws SQLException, ClassNotFoundException{
+        con = DBConnection.getConnection();
+        statement = con.createStatement();
+        String sql = "SELECT * FROM user ORDER BY total_wins DESC LIMIT 10";
+        rst = statement.executeQuery(sql);
+        
+        ArrayList<Player> list = new ArrayList<Player>();
+        Player temp; 
+        
+        while(rst.next()){
+            temp = new Player(rst.getString(1),rst.getInt(2),rst.getInt(3),rst.getInt(4),rst.getInt(5));
+            list.add(temp);
+        }
+        
+        return list;
     }
 }
