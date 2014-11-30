@@ -29,7 +29,7 @@
             <DropShadow height="12.1" radius="5.5525" spread="0.44" width="12.11" />
          </effect>
       </Label>
-      <Button fx:id="playBtn" layoutX="146.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefHeight="50.0" prefWidth="200.0" stylesheets="@../css/FXMLMainUiCSS.css" text="Multiplayer" textAlignment="CENTER">
+      <Button fx:id="multiPlayerBtn" layoutX="146.0" layoutY="192.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked" prefHeight="50.0" prefWidth="200.0" stylesheets="@../css/FXMLMainUiCSS.css" text="Multiplayer" textAlignment="CENTER">
          <font>
             <Font name="Cartwheel" size="16.0" />
          </font>
@@ -37,7 +37,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="newPlayerBtn" layoutX="146.0" layoutY="272.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Vs. Computer" textAlignment="CENTER">
+      <Button fx:id="singlePlayerBtn" layoutX="146.0" layoutY="272.0" mnemonicParsing="false" onMouseClicked="#onSinglePlayerBtnClicked" prefHeight="50.0" prefWidth="200.0" text="Vs. Computer" textAlignment="CENTER">
          <font>
             <Font name="Cartwheel" size="16.0" />
          </font>
@@ -45,7 +45,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="leaderBoardBtn" layoutX="145.0" layoutY="348.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Leader Board" textAlignment="CENTER">
+      <Button fx:id="leaderBoardBtn" layoutX="145.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#onLeaderBoardBtnClicked" prefHeight="50.0" prefWidth="200.0" text="Leader Board" textAlignment="CENTER">
          <font>
             <Font name="Cartwheel" size="16.0" />
          </font>

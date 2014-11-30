@@ -44,6 +44,22 @@ public class Board {
         }
         return game;
     }
+    
+    public static Board getNewInstance() {
+        game = new Board();
+        System.out.println("new board created!");
+        game.printGrid();
+        return game;
+    }
+    
+    private void printGrid(){
+        for (int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
+                System.out.print(grid[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
 
     public State[][] getGrid() {
         return grid;
@@ -71,17 +87,25 @@ public class Board {
                 if (!gameDBAccess.isExisting(player1.getUserName())) {
                     gameDBAccess.addNewPlayer(player1.getUserName());
                 }
-                if (!gameDBAccess.isExisting(player2.getUserName())) {
-                    gameDBAccess.addNewPlayer(player2.getUserName());
+                
+                if(!isSinglePlayerMode()){
+                    if (!gameDBAccess.isExisting(player2.getUserName())) {
+                        gameDBAccess.addNewPlayer(player2.getUserName());
+                    }
                 }
                 
                 /* Update the records of the players */
                 if (state == State.X) {
                     gameDBAccess.incrementWins(player1.getUserName());
-                    gameDBAccess.incrementLosses(player2.getUserName());
+                    
+                    if(!isSinglePlayerMode())
+                        gameDBAccess.incrementLosses(player2.getUserName());
+                    
                     winner = player1;
                 } else if (state == State.O) {
-                    gameDBAccess.incrementWins(player2.getUserName());
+                    if(!isSinglePlayerMode())
+                        gameDBAccess.incrementWins(player2.getUserName());
+                    
                     gameDBAccess.incrementLosses(player1.getUserName());
                     winner = player2;
                 }
@@ -99,11 +123,13 @@ public class Board {
                 if (!gameDBAccess.isExisting(player1.getUserName())) 
                     gameDBAccess.addNewPlayer(player1.getUserName());
                 
-                if (!gameDBAccess.isExisting(player2.getUserName())) 
+                if (!isSinglePlayerMode() && !gameDBAccess.isExisting(player2.getUserName())) 
                     gameDBAccess.addNewPlayer(player2.getUserName());
                 
                 gameDBAccess.incrementDraws(player1.getUserName());
-                gameDBAccess.incrementDraws(player2.getUserName());
+                
+                if(!isSinglePlayerMode())
+                    gameDBAccess.incrementDraws(player2.getUserName());
                 
                 gameOver = true;
 
@@ -112,6 +138,10 @@ public class Board {
             }
         }
         return true;
+    }
+    
+    public boolean isSinglePlayerMode(){
+        return computer != null;
     }
 
     /* algorithm taken from http://www.ntu.edu.sg/home/ehchua/programming/java/JavaGame_TicTacToe.html */
@@ -164,5 +194,13 @@ public class Board {
 
     public Player getPlayer2() {
         return player2;
+    }
+
+    public AIPlayerMinimax getComputer() {
+        return computer;
+    }
+
+    public void setComputer(AIPlayerMinimax computer) {
+        this.computer = computer;
     }
 }

@@ -11,7 +11,7 @@ import tictactoe.util.State;
  *
  * @author Pubudu
  */
-public abstract class AIPlayer {
+public abstract class AIPlayer extends Player{
    protected int ROWS = 3;  // number of rows
    protected int COLS = 3;  // number of columns
  
@@ -21,7 +21,9 @@ public abstract class AIPlayer {
  
    /** Constructor with reference to game board */
    public AIPlayer(Board board) {
+      super("Computer");
       this.board = board.getGrid();
+      setSeed(State.O);
    }
  
    /** Set/change the seed used by computer and opponent */
