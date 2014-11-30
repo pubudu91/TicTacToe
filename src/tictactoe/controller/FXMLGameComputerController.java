@@ -91,6 +91,7 @@ public class FXMLGameComputerController implements Initializable {
                                     .title("Single Player Mode")
                                     .masthead("Player 1 Details")
                                     .message("Please enter your name:")
+                                    .styleClass(Dialog.STYLE_CLASS_UNDECORATED)
                                     .showTextInput();
         
         if(response.isPresent())
@@ -162,8 +163,7 @@ public class FXMLGameComputerController implements Initializable {
         int row = GridPane.getRowIndex(view);
         int col = GridPane.getColumnIndex(view);
         
-        view.setScaleX(.75);
-        view.setScaleY(.75);
+        scale(view);
         
         String url = getURL();
         boolean moveMade = makeNextMove(row, col);
@@ -240,11 +240,19 @@ public class FXMLGameComputerController implements Initializable {
     }
     
     private void showWinnerDialog(Player winner){
+        String msg;
+        
+        if(winner == board.getPlayer1())
+            msg = "Congratulations!!!";
+        else
+            msg = "Better luck next time...";
+        
         Dialogs.create()
             .owner(game.getStage())
             .title("We have a winner!")
-            .masthead("Congratulations!!!")
+            .masthead(msg)
             .message(winner.getUserName()+" WINS!!!")
+            .styleClass(Dialog.STYLE_CLASS_UNDECORATED)
             .showInformation();
     }
     

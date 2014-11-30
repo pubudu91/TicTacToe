@@ -23,7 +23,7 @@ public class AIPlayerMinimax extends AIPlayer {
     /** Get next best move for computer. Return int[2] of {row, col} */
     @Override
     public int[] move() {
-        int[] result = minimax(2, mySeed); // depth, max turn
+        int[] result = minimax(1, mySeed); // depth, max turn
         return new int[] {result[1], result[2]};   // row, col
     }
 
