@@ -22,6 +22,7 @@ import tictactoe.util.ScreenUtils;
 public class GameComputer extends Application {
     private static GameComputer game;
     private Stage stage;
+    private static String player1;
     
     @Override
     public void start(Stage stage) throws IOException {
@@ -46,6 +47,15 @@ public class GameComputer extends Application {
             game = new GameComputer();
         
         return game;
+    }
+    
+    public static GameComputer getInstance(String name){
+        player1 = name;
+        return getInstance();
+    }
+    
+    public String getPlayer1Name() {
+        return player1;
     }
     
     public Stage getStage() {

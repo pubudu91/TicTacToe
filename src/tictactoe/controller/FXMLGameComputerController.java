@@ -86,16 +86,18 @@ public class FXMLGameComputerController implements Initializable {
         moveNo = 0;
         setUpPlayers(); 
         
-        Optional<String> response = Dialogs.create()
-                                    .owner(game.getStage())
-                                    .title("Single Player Mode")
-                                    .masthead("Player 1 Details")
-                                    .message("Please enter your name:")
-                                    .styleClass(Dialog.STYLE_CLASS_UNDECORATED)
-                                    .showTextInput();
+//        Optional<String> response = Dialogs.create()
+//                                    .owner(game.getStage())
+//                                    .title("Single Player Mode")
+//                                    .masthead("Player 1 Details")
+//                                    .message("Please enter your name:")
+//                                    .styleClass(Dialog.STYLE_CLASS_UNDECORATED)
+//                                    .showTextInput();
+//        
+//        if(response.isPresent())
+//            board.getPlayer1().setUserName(response.get());     
         
-        if(response.isPresent())
-            board.getPlayer1().setUserName(response.get());
+        board.setPlayer1(new Player(game.getPlayer1Name()));
         
         player1Label.setText(board.getPlayer1().getUserName());
         player2Label.setText("Computer");

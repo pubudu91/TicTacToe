@@ -8,12 +8,15 @@ package tictactoe.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import org.controlsfx.dialog.Dialog;
+import org.controlsfx.dialog.Dialogs;
 import tictactoe.ui.GameComputer;
 import tictactoe.ui.LeaderBoard;
 import tictactoe.ui.MainUI;
@@ -54,8 +57,23 @@ public class FXMLMainUIController implements Initializable {
     @FXML
     public void onSinglePlayerBtnClicked(MouseEvent event){
         try {
-            System.out.println("Button clicked!");
-            GameComputer.getInstance().start(MainUI.getStage());
+            System.out.println("Single Player Button clicked!");
+            Optional<String> response = Dialogs.create()
+                                    .owner(MainUI.getStage())
+                                    .title("Single Player Mode")
+                                    .masthead("Player 1 Details")
+                                    .message("Please enter your name:")
+                                    .styleClass(Dialog.STYLE_CLASS_UNDECORATED)
+                                    .showTextInput();
+            
+            String player1 = "";
+            
+            if(response.isPresent())
+                player1 = response.get();
+            else 
+                return;
+            
+            GameComputer.getInstance(player1).start(MainUI.getStage());
         } catch (IOException ex) {            
             System.out.println("ERROR in Single Player button click");
             System.out.println(ex);
