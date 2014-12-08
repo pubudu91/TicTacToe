@@ -20,6 +20,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -37,6 +38,8 @@ public class FXMLLeaderBoardController implements Initializable {
     @FXML
     private TableView<LeaderboardEntry> leaderBoardTable;
     @FXML
+    private TableColumn<LeaderboardEntry, Integer> rankColumn;
+    @FXML
     private TableColumn<LeaderboardEntry, String> nameColumn;
     @FXML
     private TableColumn<LeaderboardEntry, Integer> winsColumn;
@@ -49,17 +52,22 @@ public class FXMLLeaderBoardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<LeaderboardEntry> entries = FXCollections.observableArrayList(getHighScoreList());
+        
+        rankColumn.setCellValueFactory(new PropertyValueFactory<LeaderboardEntry, Integer>("rank"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<LeaderboardEntry, String>("name"));
         winsColumn.setCellValueFactory(new PropertyValueFactory<LeaderboardEntry, Integer>("wins"));
+        
         leaderBoardTable.setItems(entries);
+        
+        leaderBoardTable.getSelectionModel().setCellSelectionEnabled(false);
     }    
     
-    public void fillTable(){
-        
-        
-        leaderBoardTable.getColumns().addAll(nameColumn, winsColumn);
-        
-    }
+//    public void fillTable(){
+//        
+//        
+//        leaderBoardTable.getColumns().addAll(nameColumn, winsColumn);
+//        
+//    }
     
     public List<LeaderboardEntry> getHighScoreList(){
         ArrayList<LeaderboardEntry> list = new ArrayList<LeaderboardEntry>();
@@ -75,9 +83,10 @@ public class FXMLLeaderBoardController implements Initializable {
         }
         
         Iterator<Player> it = players.iterator();
+        int rank = 1;
         
         while(it.hasNext())
-            list.add(new LeaderboardEntry(it.next()));
+            list.add(new LeaderboardEntry(it.next(), rank++));
         
         System.out.println(players);
         return list;

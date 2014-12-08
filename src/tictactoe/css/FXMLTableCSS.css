@@ -8,11 +8,124 @@ and open the template in the editor.
     Author     : Pubudu
 */
 
-.text-field {
+/*.text-field {
     -fx-font-family: Cartwheel;
     -fx-font-size: 15px;
+}
+
+.table-view table-column {
+    -fx-background-color: black;
+}*/
+
+/*.background {
+    -fx-background-color: #1d1d1d;
+}*/
+
+/*.label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 0.6;
+}*/
+
+/*.label-bright {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}*/
+
+/*.label-header {
+    -fx-font-size: 32pt;
+    -fx-font-family: Cartwheel;
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}*/
+
+.table-view {
+    -fx-base: #91ddf7;
+    -fx-control-inner-background: #91ddf7;
+    -fx-background-color: #91ddf7;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    /*-fx-padding: 5;*/
 }
 
 .table-view .column-header-background {
     -fx-background-color: transparent;
 }
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color: 
+        transparent
+        transparent
+        derive(-fx-base, 80%) 
+        transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 16pt;
+    -fx-font-family: "Cartwheel";
+    -fx-text-fill: #ffe603;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,1) , 5.5,.4,1,1);
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    /*-fx-background-color: -fx-focus-color;*/
+    -fx-background-color: transparent;
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: black ;
+}
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-color: transparent #1d1d1d transparent #1d1d1d;
+    -fx-background-color: transparent, derive(#1d1d1d,20%);
+}
+
+.split-pane {
+    -fx-padding: 1 0 0 0;
+}
+
+.table-column {
+    -fx-font-family: "Cartwheel";
+    -fx-font-size: 15;
+    -fx-alignment: center;
+    -fx-text-fill: black;
+}
+
+#rank {
+    -fx-alignment: center;
+}
+
+.menu-bar {
+    -fx-background-color: derive(#1d1d1d,20%);
+}
+
+.context-menu {
+    -fx-background-color: derive(#1d1d1d,50%);
+}
+
+/*.menu-bar .label {
+    -fx-font-size: 14pt;
+    -fx-font-family: "Cartwheel";
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+}*/
+
+/*.menu .left-container {
+    -fx-background-color: black;
+}*/
+
+/*.text-field {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Cartwheel";
+}*/

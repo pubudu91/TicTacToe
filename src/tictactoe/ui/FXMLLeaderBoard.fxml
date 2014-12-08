@@ -29,15 +29,12 @@
             <DropShadow height="12.1" radius="5.5525" spread="0.44" width="12.11" />
          </effect>
       </Label>
-      <TableView fx:id="leaderBoardTable" layoutX="79.0" layoutY="140.0" opacity="0.7" prefHeight="362.0" prefWidth="332.0" stylesheets="@../css/FXMLTableCSS.css">
+      <TableView fx:id="leaderBoardTable" layoutX="79.0" layoutY="140.0" opacity="0.7" prefHeight="329.0" prefWidth="332.0" stylesheets="@../css/FXMLTableCSS.css">
         <columns>
-          <TableColumn fx:id="nameColumn" prefWidth="210.0" text="Player" />
-          <TableColumn fx:id="winsColumn" prefWidth="121.0" text="Wins" />
+            <TableColumn id="rank" fx:id="rankColumn" prefWidth="72.0" text="Rank" />
+          <TableColumn fx:id="nameColumn" prefWidth="171.0" text="Player" />
+          <TableColumn fx:id="winsColumn" prefWidth="88.0" text="Wins" />
         </columns>
-         <styleClass>
-            <String fx:value="text-field" />
-            <String fx:value=".table-view .column-header-background" />
-         </styleClass>
       </TableView>
       <Button id="back" fx:id="backBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onBackBtnClicked" prefHeight="50.0" prefWidth="50.0">
          <cursor>

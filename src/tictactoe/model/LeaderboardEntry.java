@@ -19,11 +19,12 @@ public class LeaderboardEntry {
     //private Player player;
     private StringProperty name;
     private IntegerProperty wins;
+    private IntegerProperty rank;
 
-    public LeaderboardEntry(Player player) {
-        //this.player = player;
+    public LeaderboardEntry(Player player, int rank) {
         setName(player.getUserName());
         setWins(player.getWins());
+        setRank(rank);
     }
 
     public String getName() {
@@ -33,14 +34,10 @@ public class LeaderboardEntry {
     public Integer getWins() {
         return wins.get();
     }
-
-//    public Player getPlayer() {
-//        return player;
-//    }
-//
-//    public void setPlayer(Player player) {
-//        this.player = player;
-//    }
+    
+    public Integer getRank() {
+        return rank.get();
+    }
 
     public void setName(String name) {
         this.name = new SimpleStringProperty(name);
@@ -48,5 +45,9 @@ public class LeaderboardEntry {
 
     public void setWins(int wins) {
         this.wins = new SimpleIntegerProperty(wins);
+    }
+    
+    public void setRank(int rank) {
+        this.rank = new SimpleIntegerProperty(rank);
     }
 }
